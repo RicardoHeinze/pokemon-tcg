@@ -1,0 +1,20 @@
+:host
+    display: block
+    background: url('/assets/imgs/pokemon-background.jpg') no-repeat
+    background-size: cover
+    background-position: center
+    background-attachment: fixed
+
+    &::before
+        content: ''
+        width: 100%
+        height: 100%
+        filter: blur(1px)
+    
+    .pokemon-card-list
+        background-color: #fff
+        max-width: 1600px
+        margin: 0 auto
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(100px, 245px))
+    

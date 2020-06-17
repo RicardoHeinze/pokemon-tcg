@@ -1,0 +1,21 @@
+<section id="pokemonListSection" class="section container">
+    <ng-container *ngIf="pokemonsCardsList.length > 0; else emptyList">
+        <ul class="pokemon-card-list" >
+            <li class="pokemon-card" *ngFor="let pokemon of pokemonsCardsList" [title]="pokemon.name">
+                <figure class="pokemon-figure">
+                    <img class="pokemon-image" [src]="pokemon.imageUrl" [alt]="pokemon.name">
+                    <figcaption class="description">
+                        <span class="text name">{{pokemon.name}}</span>
+                        <span class="text id">{{pokemon.id}}</span>
+                        <span class="text types">
+                            <span class="text" *ngFor="let type of pokemon.types">{{type}}</span>
+                        </span>
+                    </figcaption>
+                </figure>
+            </li>
+        </ul>
+    </ng-container>
+    <ng-template #emptyList>
+        <p class="error not-found">Não foi possível encontrar nenhum pokémon</p>
+    </ng-template>
+</section>
