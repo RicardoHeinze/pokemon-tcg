@@ -1,13 +1,18 @@
-<section id="pokemonListSection" class="section container">
+<section id="pokemonListSection" class="section v-gap container">
+    <app-logo></app-logo>
     <ng-container *ngIf="pokemonsCardsList.length > 0; else emptyList">
         <ul class="pokemon-card-list" >
-            <li class="pokemon-card" *ngFor="let pokemon of pokemonsCardsList" [title]="pokemon.name">
+            <li class="pokemon-card" *ngFor="let pokemon of pokemonsCardsList">
                 <figure class="pokemon-figure">
-                    <img class="pokemon-image" [src]="pokemon.imageUrl" [alt]="pokemon.name">
+                    <a [href]="'/pokemon/' + pokemon.id" [title]="pokemon.name" class="img-wrapper">
+                        <img class="pokemon-image" [src]="pokemon.imageUrl" [alt]="pokemon.name">
+                    </a>
                     <figcaption class="description">
-                        <span class="text name">{{pokemon.name}}</span>
-                        <span class="text id">{{pokemon.id}}</span>
-                        <span class="text types">
+                        <div class="box">
+                            <span class="text name" [title]="pokemon.name">{{pokemon.name}}</span>
+                            <span class="text id" [title]="pokemon.id">{{pokemon.id}}</span>
+                        </div>
+                        <span class="types">
                             <span class="text" *ngFor="let type of pokemon.types">{{type}}</span>
                         </span>
                     </figcaption>

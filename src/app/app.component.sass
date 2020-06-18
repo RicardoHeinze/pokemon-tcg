@@ -1,0 +1,34 @@
+@import '../assets/sass/font'
+@import '../assets/sass/media'
+
+:host 
+    font-family: 'Nunito-Regular', 'Arial', 'Roboto', sans-serif
+
+    ::ng-deep
+        .container
+            box-sizing: border-box
+            margin: 0 auto
+
+        @media only screen and (min-width: $mobile)
+            .v-gap
+                padding-top: 50px
+                padding-bottom: 50px
+            
+            .container
+                padding-left: 20px
+                padding-right: 20px
+                
+        @media only screen and (min-width: $tablet)
+            .container
+                padding-left: 50px
+                padding-right: 50px
+                  
+        @media only screen and (min-width: $s-desktop)
+            .v-gap
+                padding-top: 70px
+                padding-bottom: 70px
+            
+            .container
+                padding-left: 100px
+                padding-right: 100px
+    

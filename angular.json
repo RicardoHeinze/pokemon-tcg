@@ -32,6 +32,11 @@
               "src/styles.sass",
               "src/assets/css/reset.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/sass"
+              ]
+            },
             "scripts": []
           },
           "configurations": {

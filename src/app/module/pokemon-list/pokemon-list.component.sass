@@ -1,20 +1,97 @@
+@import '../../../assets/sass/mixin'
+
 :host
+    $card-bg-color: #f3f8fa
     display: block
     background: url('/assets/imgs/pokemon-background.jpg') no-repeat
     background-size: cover
     background-position: center
     background-attachment: fixed
-
+    min-height: 100vh
+    
     &::before
         content: ''
         width: 100%
         height: 100%
         filter: blur(1px)
     
-    .pokemon-card-list
-        background-color: #fff
-        max-width: 1600px
-        margin: 0 auto
-        display: grid
-        grid-template-columns: repeat(auto-fit, minmax(100px, 245px))
-    
+    .section    
+        .pokemon-card-list
+            background-color: #fff
+            max-width: 1375px
+            margin: 0 auto
+            display: grid
+            grid-template-columns: repeat(auto-fit, minmax(100px, 245px))
+            row-gap: 40px
+            column-gap: 20px
+            justify-content: center
+            padding: 35px
+            box-sizing: border-box
+            box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)
+            border-radius: 3px
+
+            
+            .pokemon-card
+                background-color: $card-bg-color
+                border-radius: 15px
+
+                .pokemon-figure
+                    .img-wrapper
+                        display: block
+                        max-width: 246px
+                        max-height: 342px
+                        width: 100%
+                        height: auto
+                        overflow: hidden
+                        position: relative
+
+                        &::before,
+                        .pokemon-image
+                            transition: all 0.3s ease-in
+
+                        &::before
+                            content: ""
+                            opacity: 0
+                            border: 10px solid $card-bg-color
+                            position: absolute
+                            top: 0
+                            left: 0
+                            width: 100%
+                            height: 100%
+                            box-sizing: border-box
+                            z-index: 2
+
+                        &:hover                            
+                            &::before
+                                opacity: 1
+
+                            .pokemon-image
+                                transform: scale(1.1)
+                                
+                    .description
+                        padding-bottom: 12px
+                        padding: 15px 10px
+
+                        .box
+                            display: flex
+                            justify-content: space-between
+                            font-size: 16px
+                            margin-bottom: 2px
+
+                            .text
+                                @include text-ellipsis
+
+                                &.name
+                                    font-family: 'Nunito-Bold'
+                                    text-transform: uppercase
+                                    flex: 1
+                                    padding-right: 5px
+
+                                &.id
+                                    font-family: 'Nunito-SemiBold'
+                                    width: 80px
+                                    text-align: right
+
+                                &.types
+                                    font-family: 'Poppins-Light'
+                                    font-size: 14px
