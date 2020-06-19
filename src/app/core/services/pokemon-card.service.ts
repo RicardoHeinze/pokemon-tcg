@@ -11,11 +11,12 @@ export class PokemonCardService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCardsList(): Observable<HttpResponse<any>> {
-    return this.httpClient.get<Observable<HttpResponse<any>>>(this.API + 'cards', { observe: 'response'});
+  getPokemonsCardsList(page: number = 1): Observable<HttpResponse<any>> {
+    console.log(`${this.API}cards?page=${page}`);
+    return this.httpClient.get<Observable<HttpResponse<any>>>(`${this.API}cards?page=${page}`, { observe: 'response'});
   }
 
-  getCardByID(id: string): Observable<any> {
+  getPokemonCardByID(id: string): Observable<any> {
     return this.httpClient.get<any>(`${this.API}cards/${id}`);
   }
 }

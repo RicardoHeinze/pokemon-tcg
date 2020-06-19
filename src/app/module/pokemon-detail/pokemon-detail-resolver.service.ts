@@ -10,12 +10,12 @@ import { map } from 'rxjs/operators';
 })
 export class PokemonDetailResolverService implements Resolve<PokemonCard> {
 
-  constructor(private pokemonService: PokemonCardService, private router: Router) { }
+  constructor(private pokemonCardService: PokemonCardService, private router: Router) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<PokemonCard> | Promise<PokemonCard> | PokemonCard{
     const pokemonID = route.params.id;
     
-    return this.pokemonService.getCardByID(pokemonID).pipe(map(pokemon => {
+    return this.pokemonCardService.getPokemonCardByID(pokemonID).pipe(map(pokemon => {
       return pokemon.card !== null ? pokemon.card : this.router.navigate(['/erro'])
     }));
   }

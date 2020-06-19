@@ -9,9 +9,9 @@ import { PokemonCardService } from 'src/app/core/services/pokemon-card.service';
 })
 export class PokemonListResolverService implements Resolve<PokemonCard[]> {
 
-  constructor(private pokemonService: PokemonCardService) { }
+  constructor(private pokemonCardService: PokemonCardService) { }
 
   resolve(): Observable<any> | Promise<any> | any[]{
-    return this.pokemonService.getCardsList();
+    return this.pokemonCardService.getPokemonsCardsList();
   }
 }

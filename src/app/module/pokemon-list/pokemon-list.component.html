@@ -1,6 +1,6 @@
 <section id="pokemonListSection" class="section v-gap container">
     <ng-container *ngIf="pokemonsCardsList.length > 0; else emptyList">
-        <ul class="pokemon-card-list" >
+        <ul class="pokemon-card-list" infiniteScroll [infiniteScrollDistance]="0.5" [infiniteScrollThrottle]="300" (scrolled)="loadMorePokemonCards()">
             <li class="pokemon-card" *ngFor="let pokemonCard of pokemonsCardsList">
                 <figure class="pokemon-figure">
                     <a [href]="'/pokemon/' + pokemonCard.id" [title]="pokemonCard.name" class="img-wrapper">
