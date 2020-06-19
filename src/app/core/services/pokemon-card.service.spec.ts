@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PokemonService } from './pokemon.service';
+import { PokemonCardService } from './pokemon-card.service';
 
-describe('PokemonService', () => {
+describe('PokemonCardService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: PokemonService = TestBed.get(PokemonService);
+    const service: PokemonCardService = TestBed.get(PokemonCardService);
     expect(service).toBeTruthy();
   });
 });

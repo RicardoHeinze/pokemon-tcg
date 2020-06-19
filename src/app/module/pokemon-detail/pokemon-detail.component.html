@@ -1,1 +1,83 @@
-<p>pokemon-detail works!</p>
+<section id="pokemonDetailSection" class="section container v-gap">
+    <div class="pokemon-card-detail" *ngIf="pokemonCard">
+        <header class="header bg-type" [ngClass]="getHeaderBackground()">
+            <h2 class="subtitle">{{pokemonCard.name}}</h2>
+        </header>
+        <div class="content">
+            <div class="image-box">
+                <img class="pokemon-image" [src]="pokemonCard.imageUrlHiRes" [alt]="pokemonCard.name" [title]="pokemonCard.name">
+            </div>
+            <div class="description-box">
+                <div class="row" *ngIf="pokemonCard.name">
+                    <label class="title">Name:</label>
+                    <span class="text">{{pokemonCard.name}}</span>
+                </div>
+                <div class="row" *ngIf="pokemonCard.id">
+                    <label class="title">ID:</label>
+                    <span class="text">{{pokemonCard.id}}</span>
+                </div>
+                <div class="row" *ngIf="pokemonCard.types">
+                    <label class="title">Type:</label>
+                    <span class="text multiple-values" *ngFor="let type of pokemonCard.types">{{type}} </span>
+                </div>
+                <div class="row" *ngIf="pokemonCard.text">
+                    <label class="title">Text:</label>
+                    <span class="text" *ngFor="let type of pokemonCard.text">{{type}} </span>
+                </div>
+                <div class="row list-row attacks-row" *ngIf="pokemonCard.attacks && pokemonCard.attacks.length > 0">
+                    <label class="title">Attacks</label>
+                    <ul class="attr-list attacks-list">
+                        <li class="attr attack" *ngFor="let attack of pokemonCard.attacks">
+                            <div class="row" *ngIf="attack.name">
+                                <label class="title">Name:</label>
+                                <span class="list-text attack-name">{{attack.name}}</span>
+                            </div>
+                            <div class="row" *ngIf="attack.text">
+                                <label class="title">Text:</label>
+                                <span class="list-text attack-text">{{attack.text}}</span>
+                            </div>
+                            <div class="row" *ngIf="attack.damage">
+                                <label class="title">Damage:</label>
+                                <span class="list-text attack-damage">{{attack.damage}}</span>
+                            </div>
+                            <div class="row" *ngIf="attack.cost && attack.cost.length > 0">
+                                <label class="title">Energy Cost:</label>
+                                <span class="list-text attack-cost multiple-values" *ngFor="let energyCost of attack.cost">{{energyCost}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row list-row resistances-row" *ngIf="pokemonCard.resistances && pokemonCard.resistances.length > 0">
+                    <label class="title">Resistances</label>
+                    <ul class="attr-list resistances-list">
+                        <li class="attr attack" *ngFor="let resistance of pokemonCard.resistances">
+                            <div class="row" *ngIf="resistance.type">
+                                <label class="title">Type:</label>
+                                <span class="list-text resistance-type">{{resistance.type}}</span>
+                            </div>
+                            <div class="row" *ngIf="resistance.value">
+                                <label class="title">Value:</label>
+                                <span class="list-text resistance-value">{{resistance.value}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row list-row weaknesses-row" *ngIf="pokemonCard.weaknesses && pokemonCard.weaknesses.length > 0">
+                    <label class="title">Weaknesses</label>
+                    <ul class="attr-list weaknesses-list">
+                        <li class="attr attack" *ngFor="let weakness of pokemonCard.weaknesses">
+                            <div class="row" *ngIf="weakness.type">
+                                <label class="title">Type:</label>
+                                <span class="list-text weakness-type">{{weakness.type}}</span>
+                            </div>
+                            <div class="row" *ngIf="weakness.value">
+                                <label class="title">Value:</label>
+                                <span class="list-text weakness-value">{{weakness.value}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PokemonResolverService } from './module/pokemon-list/pokemon-resolver.service';
+import { PokemonListResolverService } from './module/pokemon-list/pokemon-list-resolver.service';
+import { PokemonDetailResolverService } from './module/pokemon-detail/pokemon-detail-resolver.service';
 
 const routes: Routes = [
   {
@@ -11,11 +12,12 @@ const routes: Routes = [
   { 
     path: 'lista',
     loadChildren: () => import('./module/pokemon-list/pokemon-list.module').then(m => m.PokemonListModule),
-    resolve: { pokemonList : PokemonResolverService }
+    resolve: { data : PokemonListResolverService }
   },
   { 
-    path: 'pokemon',
-    loadChildren: () => import('./module/pokemon-detail/pokemon-detail.module').then(m => m.PokemonDetailModule)
+    path: 'pokemon/:id',
+    loadChildren: () => import('./module/pokemon-detail/pokemon-detail.module').then(m => m.PokemonDetailModule),
+    resolve: { data : PokemonDetailResolverService }
   },
   {
     path: '**',
