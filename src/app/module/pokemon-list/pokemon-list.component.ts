@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PokemonCard } from 'src/app/shared/models/Pokemon';
-import { first } from 'rxjs/operators';
 import { HttpResponse } from '@angular/common/http';
-import { PokemonCardService } from 'src/app/core/services/pokemon-card.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -12,35 +9,38 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./pokemon-list.component.sass']
 })
 export class PokemonListComponent implements OnInit {
-  pokemonsCardsList: Array<PokemonCard> = [];
+  pokemonCardList: Array<PokemonCard> = [];
+  renderedPokemonCardList: Array<PokemonCard> = [];
+
   snapshotData: HttpResponse<any>;
-  totalCards: number;
-  pageSize: number;
-  count: number;
   currentPage = 1;
-  pokemonCardsListSubscribe: Subscription;
-  
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private pokemonCardService: PokemonCardService
-  ) { }
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
 
   ngOnInit() {
-    this.snapshotData = this.activatedRoute.snapshot.data.data;
+    this.snapshotData = this.activatedRoute.snapshot.data.pokemonCardList;
+    this.pokemonCardList = this.snapshotData.body["cards"];
 
-    this.totalCards = parseInt(this.snapshotData.headers.get('total-count'));
-    this.pokemonsCardsList = this.snapshotData.body["cards"];
+    this.sortArrayByName(this.pokemonCardList);
+    this.renderedPokemonCardList = this.pokemonCardList.splice(0, 100);
   }
 
   loadMorePokemonCards(): void {
     this.currentPage = this.currentPage + 1;
 
-    if(this.pokemonsCardsList.length > this.totalCards)
+    if (this.pokemonCardList.length <= 0)
       return;
-    
-    this.pokemonCardsListSubscribe = this.pokemonCardService.getPokemonsCardsList(this.currentPage).pipe(first()).subscribe(httpResponse => {
-      this.pokemonsCardsList = this.pokemonsCardsList.concat(httpResponse.body.cards);
-      this.pokemonCardsListSubscribe.unsubscribe();
-    })
+
+    this.renderedPokemonCardList = this.renderedPokemonCardList.concat(this.pokemonCardList.splice(0, 100));
+  }
+
+  sortArrayByName(array: any[]): void {
+    array.sort((a, b) => {
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
+      return 0;
+    });
   }
 }

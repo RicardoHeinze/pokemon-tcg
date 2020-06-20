@@ -1,25 +1,15 @@
 <section id="pokemonListSection" class="section v-gap container">
-    <ng-container *ngIf="pokemonsCardsList.length > 0; else emptyList">
-        <ul class="pokemon-card-list" infiniteScroll [infiniteScrollDistance]="0.5" [infiniteScrollThrottle]="300" (scrolled)="loadMorePokemonCards()">
-            <li class="pokemon-card" *ngFor="let pokemonCard of pokemonsCardsList">
-                <figure class="pokemon-figure">
-                    <a [href]="'/pokemon/' + pokemonCard.id" [title]="pokemonCard.name" class="img-wrapper">
-                        <img class="pokemon-image" [src]="pokemonCard.imageUrl" [alt]="pokemonCard.name">
-                    </a>
-                    <figcaption class="description">
-                        <div class="box">
-                            <span class="text name" [title]="pokemonCard.name">{{pokemonCard.name}}</span>
-                            <span class="text id" [title]="pokemonCard.id">{{pokemonCard.id}}</span>
-                        </div>
-                        <span class="types">
-                            <span class="text" *ngFor="let type of pokemonCard.types">{{type}}</span>
-                        </span>
-                    </figcaption>
-                </figure>
-            </li>
-        </ul>
-    </ng-container>
-    <ng-template #emptyList>
-        <p class="error not-found">Não foi possível encontrar nenhum pokémon</p>
-    </ng-template>
+    <div class="box">
+        <app-search-bar></app-search-bar>
+        <ng-container *ngIf="renderedPokemonCardList.length > 0; else emptyList">
+            <ul class="pokemon-card-list" infiniteScroll [infiniteScrollDistance]="0.8" [infiniteScrollThrottle]="300" (scrolled)="loadMorePokemonCards()">
+                <li class="pokemon-card" *ngFor="let pokemonCard of renderedPokemonCardList">
+                    <app-pokemon-card [pokemonCard]="pokemonCard"></app-pokemon-card>
+                </li>
+            </ul>
+        </ng-container>
+        <ng-template #emptyList>
+            <p class="error error-not-found">Não foi possível encontrar nenhum pokémon. Tente novamente.</p>
+        </ng-template>
+    </div>
 </section>

@@ -11,9 +11,16 @@ export class PokemonCardService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getPokemonsCardsList(page: number = 1): Observable<HttpResponse<any>> {
-    console.log(`${this.API}cards?page=${page}`);
-    return this.httpClient.get<Observable<HttpResponse<any>>>(`${this.API}cards?page=${page}`, { observe: 'response'});
+  getPokemonCardsList(): Observable<HttpResponse<any>> {
+    return this.httpClient.get<Observable<HttpResponse<any>>>(`${this.API}cards`, { observe: 'response'});
+  }
+
+  getPokemonCardsPagedList(page: number = 1, pageSize: number = 1000): Observable<HttpResponse<any>> {
+    return this.httpClient.get<Observable<HttpResponse<any>>>(`${this.API}cards?page=${page}&pageSize=${pageSize}`, { observe: 'response'});
+  }
+
+  getPokemonCardsListByName(name: string, pageSize: number = 1000): Observable<HttpResponse<any>> {
+    return this.httpClient.get<Observable<HttpResponse<any>>>(`${this.API}cards?name=${name}&pageSize=${pageSize}`, { observe: 'response'});
   }
 
   getPokemonCardByID(id: string): Observable<any> {

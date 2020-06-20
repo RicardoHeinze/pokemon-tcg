@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Resolve } from '@angular/router';
+import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { PokemonCard } from 'src/app/shared/models/Pokemon';
 import { Observable } from 'rxjs';
 import { PokemonCardService } from 'src/app/core/services/pokemon-card.service';
@@ -11,7 +11,13 @@ export class PokemonListResolverService implements Resolve<PokemonCard[]> {
 
   constructor(private pokemonCardService: PokemonCardService) { }
 
-  resolve(): Observable<any> | Promise<any> | any[]{
-    return this.pokemonCardService.getPokemonsCardsList();
+  resolve(route: ActivatedRouteSnapshot): Observable<any> | Promise<any> | any[]{
+    const pokemonName = route.params.name;
+    
+    if(pokemonName !== undefined || null)
+      return this.pokemonCardService.getPokemonCardsListByName(pokemonName);
+
+    else
+      return this.pokemonCardService.getPokemonCardsPagedList();
   }
 }

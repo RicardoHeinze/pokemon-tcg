@@ -1,0 +1,23 @@
+<div class="row" [ngClass]="{'list-row': listValues}">
+    <label class="title">{{title}}</label>
+    <ng-container *ngIf="value" >
+        <ng-container *ngIf="isArray(value); else isSimpleValue">
+            <span class="text multiple-values" *ngFor="let val of value">{{val}} </span>
+        </ng-container>
+        <ng-template #isSimpleValue>
+            <span class="text">{{value}}</span>
+        </ng-template>
+    </ng-container>
+    <ng-container *ngIf="listValues">
+        <ul class="attr-list">
+            <li class="attr" *ngFor="let obj of listValues">
+                <ng-container *ngFor="let key of objectKeys(obj)">
+                    <div class="row" *ngIf="obj[key]">
+                        <label class="title">{{key}}:</label>
+                        <span class="list-text attack-name">{{obj[key]}}</span>
+                    </div>
+                </ng-container>
+            </li>
+        </ul>
+    </ng-container>
+</div>

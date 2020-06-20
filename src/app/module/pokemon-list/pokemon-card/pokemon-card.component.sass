@@ -1,0 +1,72 @@
+@import '../../../../assets/sass/mixin'
+    
+:host
+    $card-bg-color: #f3f8fa
+    display: block
+    background-color: $card-bg-color
+    border-radius: 15px
+    height: 100%
+    
+    .pokemon-figure
+        .img-wrapper
+            display: block
+            max-width: 246px
+            max-height: 342px
+            width: 100%
+            height: auto
+            overflow: hidden
+            position: relative
+
+            &::before,
+            .pokemon-image
+                transition: all 0.3s ease-in
+
+            &::before
+                content: ""
+                opacity: 0
+                border: 10px solid $card-bg-color
+                position: absolute
+                top: 0
+                left: 0
+                width: 100%
+                height: 100%
+                box-sizing: border-box
+                z-index: 2
+
+            .pokemon-image
+                width: 100%
+            
+            &:hover                            
+                &::before
+                    opacity: 1
+
+                .pokemon-image
+                    transform: scale(1.1)
+                    
+        .description
+            padding-bottom: 12px
+            padding: 15px 10px
+
+            .description-box
+                display: flex
+                justify-content: space-between
+                font-size: 16px
+                margin-bottom: 2px
+
+                .text
+                    @include text-ellipsis
+
+                    &.name
+                        font-family: 'Nunito-Bold'
+                        text-transform: uppercase
+                        flex: 1
+                        padding-right: 5px
+
+                    &.id
+                        font-family: 'Nunito-SemiBold'
+                        width: 75px
+                        text-align: right
+
+                    &.types
+                        font-family: 'Poppins-Light'
+                        font-size: 14px

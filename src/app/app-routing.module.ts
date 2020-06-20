@@ -7,17 +7,22 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'lista'
+    redirectTo: 'busca'
   },
   { 
-    path: 'lista',
+    path: 'busca',
     loadChildren: () => import('./module/pokemon-list/pokemon-list.module').then(m => m.PokemonListModule),
-    resolve: { data : PokemonListResolverService }
+    resolve: { pokemonCardList : PokemonListResolverService }
+  },
+  { 
+    path: 'busca/:name',
+    loadChildren: () => import('./module/pokemon-list/pokemon-list.module').then(m => m.PokemonListModule),
+    resolve: { pokemonCardList : PokemonListResolverService }
   },
   { 
     path: 'pokemon/:id',
     loadChildren: () => import('./module/pokemon-detail/pokemon-detail.module').then(m => m.PokemonDetailModule),
-    resolve: { data : PokemonDetailResolverService }
+    resolve: { pokemonCardDetail : PokemonDetailResolverService }
   },
   {
     path: '**',

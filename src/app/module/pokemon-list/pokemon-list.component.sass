@@ -1,8 +1,6 @@
-@import '../../../assets/sass/mixin'
 @import '../../../assets/sass/media'
+
 :host
-    $card-bg-color: #f3f8fa
-    
     .section    
         .pokemon-card-list
             margin: 0 auto
@@ -15,74 +13,19 @@
             box-sizing: border-box
             box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)
             border-radius: 3px
-
-            
-            .pokemon-card
-                background-color: $card-bg-color
-                border-radius: 15px
-
-                .pokemon-figure
-                    .img-wrapper
-                        display: block
-                        max-width: 246px
-                        max-height: 342px
-                        width: 100%
-                        height: auto
-                        overflow: hidden
-                        position: relative
-
-                        &::before,
-                        .pokemon-image
-                            transition: all 0.3s ease-in
-
-                        &::before
-                            content: ""
-                            opacity: 0
-                            border: 10px solid $card-bg-color
-                            position: absolute
-                            top: 0
-                            left: 0
-                            width: 100%
-                            height: 100%
-                            box-sizing: border-box
-                            z-index: 2
-
-                        &:hover                            
-                            &::before
-                                opacity: 1
-
-                            .pokemon-image
-                                transform: scale(1.1)
-                                
-                    .description
-                        padding-bottom: 12px
-                        padding: 15px 10px
-
-                        .box
-                            display: flex
-                            justify-content: space-between
-                            font-size: 16px
-                            margin-bottom: 2px
-
-                            .text
-                                @include text-ellipsis
-
-                                &.name
-                                    font-family: 'Nunito-Bold'
-                                    text-transform: uppercase
-                                    flex: 1
-                                    padding-right: 5px
-
-                                &.id
-                                    font-family: 'Nunito-SemiBold'
-                                    width: 75px
-                                    text-align: right
-
-                                &.types
-                                    font-family: 'Poppins-Light'
-                                    font-size: 14px
-
-
+            position: relative
+            z-index: 1
+        
+        .error
+            &.error-not-found
+                height: 100px
+                font-size: 18px
+                color: #b30000
+                font-family: 'Nunito-SemiBold'
+                display: flex
+                align-items: center
+                justify-content: center
+                
     @media only screen and (min-width: $tablet)
         .section
             .pokemon-card-list

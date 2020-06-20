@@ -13,11 +13,6 @@ export class PokemonDetailComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.pokemonCard = this.activatedRoute.snapshot.data.data;
-  }
-
-  getHeaderBackground(): string {
-    if(this.pokemonCard.types)
-      return this.pokemonCard.types[0].toLocaleLowerCase();
+    this.pokemonCard = this.activatedRoute.snapshot.data.pokemonCardDetail;
   }
 }

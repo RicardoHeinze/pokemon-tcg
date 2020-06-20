@@ -1,0 +1,49 @@
+@import '../../../../assets/sass/mixin'
+@import '../../../../assets/sass/media'
+
+:host
+    $row-vertical-gap: 10px
+
+    .row
+        padding-bottom: $row-vertical-gap
+
+        .multiple-values
+            position: relative
+
+            &:after
+                content: ', '
+
+            &:last-of-type
+                &::after
+                    content: none
+                        
+        &.list-row
+            padding-top: $row-vertical-gap
+            border-top: 1px solid #696969
+
+            .attr-list
+                padding-left: 15px
+                
+                .attr
+                    position: relative
+                    padding-top: $row-vertical-gap
+                    border-top: 1px solid #696969
+
+                    .title
+                        text-transform: capitalize
+                    
+                    &:first-of-type
+                        border-top: none
+
+        .text
+            font-size: 18px
+
+        .title
+            font-family: 'Nunito-Bold'
+            padding-right: 10px
+        
+    @media only screen and (min-width: $tablet)
+        .row
+            &.list-row
+                .attr-list
+                    padding-left: 35px
