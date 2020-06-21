@@ -1,4 +1,4 @@
-<form [formGroup]="searchForm" (ngSubmit)="search()" class="search-form">
+<form *ngIf="searchForm" [formGroup]="searchForm" (ngSubmit)="search()" class="search-form">
     <mat-form-field class="form-group">
         <mat-label>Buscar por nome</mat-label>
         <input formControlName="searchTerm" class="form-control" matInput>

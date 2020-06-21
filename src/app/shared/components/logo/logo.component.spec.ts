@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { LogoComponent } from './logo.component';
+import { By } from '@angular/platform-browser';
 
 describe('LogoComponent', () => {
   let component: LogoComponent;
@@ -8,9 +9,10 @@ describe('LogoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LogoComponent ]
+      declarations: [LogoComponent],
+      imports: [RouterTestingModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,5 +23,14 @@ describe('LogoComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('Checking HTML Elements', () => {
+    it('Must have a ID: pokemonLogo', () => {
+      fixture.detectChanges();
+      let el = fixture.debugElement.query(By.css('#pokemonLogo'));
+
+      expect(el).toBeTruthy();
+    });
   });
 });

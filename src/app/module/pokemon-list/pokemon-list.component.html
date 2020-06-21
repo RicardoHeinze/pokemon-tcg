@@ -1,10 +1,10 @@
 <section id="pokemonListSection" class="section v-gap container">
     <div class="box">
         <app-search-bar></app-search-bar>
-        <ng-container *ngIf="renderedPokemonCardList.length > 0; else emptyList">
+        <ng-container *ngIf="renderedPokemonCardList && renderedPokemonCardList.length > 0; else emptyList">
             <ul class="pokemon-card-list" infiniteScroll [infiniteScrollDistance]="0.8" [infiniteScrollThrottle]="300" (scrolled)="loadMorePokemonCards()">
                 <li class="pokemon-card" *ngFor="let pokemonCard of renderedPokemonCardList">
-                    <app-pokemon-card [pokemonCard]="pokemonCard"></app-pokemon-card>
+                    <app-pokemon-card *ngIf="pokemonCard" [pokemonCard]="pokemonCard"></app-pokemon-card>
                 </li>
             </ul>
         </ng-container>

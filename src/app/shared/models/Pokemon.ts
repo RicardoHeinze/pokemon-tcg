@@ -1,6 +1,8 @@
 export class PokemonCard {
     id: string;
     name: string;
+    ability: PokemonAbility
+    convertedRetreatCost: number;
     nationalPokedexNumber: number;
     imageUrl: string;
     imageUrlHiRes: string;
@@ -18,6 +20,12 @@ export class PokemonCard {
     setCode: string;
     attacks: Array<PokemonAttack>;
     weaknesses: Array<PokemonWeakness>;
+}
+
+export class PokemonAbility {
+    name: string;
+    text: string;
+    type: string;
 }
 
 export class PokemonAttack {

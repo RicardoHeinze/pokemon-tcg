@@ -4,7 +4,6 @@ import { SearchBarComponent } from './search-bar.component';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [SearchBarComponent],
   imports: [

@@ -7,15 +7,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PokemonDetailHeaderComponent implements OnInit {
   @Input() name: string;
-  @Input() types: Array<string>;
+  @Input() types: Array<string> = null;
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  getBackgroundColor(): string {
-    if(this.types)
-      return this.types[0].toLocaleLowerCase();
   }
 }

@@ -1,13 +1,13 @@
-<figure class="pokemon-figure">
-    <a [href]="'/pokemon/' + pokemonCard.id" [title]="pokemonCard.name" class="img-wrapper">
+<figure class="pokemon-figure" *ngIf="pokemonCard">
+    <a [href]="'/pokemon/' + pokemonCard.id" *ngIf="pokemonCard.imageUrl" [title]="pokemonCard.name" class="img-wrapper">
         <img class="pokemon-image" [src]="pokemonCard.imageUrl" [alt]="pokemonCard.name">
     </a>
     <figcaption class="description">
         <div class="description-box">
-            <span class="text name" [title]="pokemonCard.name">{{pokemonCard.name}}</span>
-            <span class="text id" [title]="pokemonCard.id">{{pokemonCard.id}}</span>
+            <span class="text name" *ngIf="pokemonCard.name" [title]="pokemonCard.name">{{pokemonCard.name}}</span>
+            <span class="text id" *ngIf="pokemonCard.id" [title]="pokemonCard.id">{{pokemonCard.id}}</span>
         </div>
-        <span class="types-box">
+        <span class="types-box" *ngIf="pokemonCard.types">
             <span class="text" *ngFor="let type of pokemonCard.types">{{type}}</span>
         </span>
     </figcaption>

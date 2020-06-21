@@ -9,8 +9,8 @@ import { HttpResponse } from '@angular/common/http';
   styleUrls: ['./pokemon-list.component.sass']
 })
 export class PokemonListComponent implements OnInit {
-  pokemonCardList: Array<PokemonCard> = [];
-  renderedPokemonCardList: Array<PokemonCard> = [];
+  pokemonCardList: Array<PokemonCard>;
+  renderedPokemonCardList: Array<PokemonCard>;
 
   snapshotData: HttpResponse<any>;
   currentPage = 1;

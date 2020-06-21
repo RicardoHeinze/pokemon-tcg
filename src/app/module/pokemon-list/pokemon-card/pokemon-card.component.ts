@@ -7,7 +7,7 @@ import { PokemonCard } from 'src/app/shared/models/Pokemon';
   styleUrls: ['./pokemon-card.component.sass']
 })
 export class PokemonCardComponent implements OnInit {
-  @Input() pokemonCard: PokemonCard
+  @Input() pokemonCard: PokemonCard = null;
 
   constructor() { }
 

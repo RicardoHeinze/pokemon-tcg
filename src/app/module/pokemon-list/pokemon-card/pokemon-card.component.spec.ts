@@ -8,9 +8,10 @@ describe('PokemonCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PokemonCardComponent ]
+      declarations: [PokemonCardComponent],
+      providers: [ ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
