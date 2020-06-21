@@ -14,7 +14,7 @@ export class PokemonDetailHeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  getHeaderBackground(): string {
+  getBackgroundColor(): string {
     if(this.types)
       return this.types[0].toLocaleLowerCase();
   }
