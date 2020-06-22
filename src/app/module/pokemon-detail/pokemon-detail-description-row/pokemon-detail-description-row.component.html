@@ -14,7 +14,7 @@
                 <ng-container *ngFor="let key of objectKeys(obj)">
                     <div class="row" *ngIf="obj[key]">
                         <label class="title">{{key}}:</label>
-                        <span class="list-text attack-name">{{obj[key]}}</span>
+                        <span class="list-text" [ngClass]="{'text-array': isArray(obj[key])}">{{obj[key]}}</span>
                     </div>
                 </ng-container>
             </li>
