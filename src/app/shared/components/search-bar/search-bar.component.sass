@@ -1,3 +1,5 @@
+@import '../../../../assets/sass/mixin'
+    
 :host
     display: block
     position: sticky
@@ -26,10 +28,10 @@
             &.mat-form-field-invalid
                 &~.btn-search
                     filter: brightness(0) saturate(100%) invert(28%) sepia(65%) saturate(2223%) hue-rotate(342deg) brightness(108%) contrast(92%)
+        
         .btn-search
             display: block
             background: url('/assets/imgs/icon-search.svg') no-repeat
-            width: 30px
-            height: 30px
+            @include box-size(30px, 30px)
             background-size: cover
             margin: 0 0 2px 8px

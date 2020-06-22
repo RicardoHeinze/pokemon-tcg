@@ -1,5 +1,5 @@
 <section id="pokemonListSection" class="section v-gap container">
-    <div class="box">
+    <div class="section-box">
         <app-search-bar></app-search-bar>
         <ng-container *ngIf="renderedPokemonCardList && renderedPokemonCardList.length > 0; else emptyList">
             <ul class="pokemon-card-list" infiniteScroll [infiniteScrollDistance]="0.8" [infiniteScrollThrottle]="300"

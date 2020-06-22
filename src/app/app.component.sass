@@ -1,5 +1,6 @@
 @import '../assets/sass/font'
 @import '../assets/sass/media'
+@import '../assets/sass/mixin'
 
 :host 
     font-family: 'Nunito-Regular', 'Arial', 'Roboto', sans-serif
@@ -13,21 +14,33 @@
     ::ng-deep
         .container
             box-sizing: border-box
+            padding-left: 20px
+            padding-right: 20px
+
+        .v-gap
+            padding-top: 50px
+            padding-bottom: 50px
 
         .section
-            .box
+            .section-box
                 background-color: #fff
                 max-width: 1375px
                 margin: 0 auto
+        
+        .loader
+            position: fixed
+            top: 0
+            z-index: 100
 
-        @media only screen and (min-width: $mobile)
-            .v-gap
-                padding-top: 50px
-                padding-bottom: 50px
-            
-            .container
-                padding-left: 20px
-                padding-right: 20px
+            &::before
+                position: fixed
+                content: ''
+                top: 0
+                left: 0
+                right: 0
+                bottom: 0
+                @include box-size(100%, 100%)
+                z-index: 99
                 
         @media only screen and (min-width: $tablet)
             .container
