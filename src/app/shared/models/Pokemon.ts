@@ -1,7 +1,7 @@
 export class PokemonCard {
     id: string;
     name: string;
-    ability: PokemonAbility
+    ability: PokemonCardAbility
     convertedRetreatCost: number;
     nationalPokedexNumber: number;
     imageUrl: string;
@@ -18,17 +18,19 @@ export class PokemonCard {
     series: string;
     set: string;
     setCode: string;
-    attacks: Array<PokemonAttack>;
-    weaknesses: Array<PokemonWeakness>;
+    text: Array<string>;
+    attacks: Array<PokemonCardAttack>;
+    weaknesses: Array<PokemonCardWeakness>;
+    resistances: Array<PokemonCardResistance>;
 }
 
-export class PokemonAbility {
+export class PokemonCardAbility {
     name: string;
     text: string;
     type: string;
 }
 
-export class PokemonAttack {
+export class PokemonCardAttack {
     cost: Array<string>;
     name: string;
     text: string;
@@ -36,7 +38,12 @@ export class PokemonAttack {
     convertedEnergyCost: number;
 }
 
-export class PokemonWeakness{
+export class PokemonCardWeakness {
+    type: string;
+    value: string;
+}
+
+export class PokemonCardResistance {
     type: string;
     value: string;
 }

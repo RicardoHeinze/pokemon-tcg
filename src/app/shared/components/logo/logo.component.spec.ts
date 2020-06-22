@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { LogoComponent } from './logo.component';
 import { By } from '@angular/platform-browser';
+
+import { LogoComponent } from './logo.component';
 
 describe('LogoComponent', () => {
   let component: LogoComponent;
@@ -11,8 +12,7 @@ describe('LogoComponent', () => {
     TestBed.configureTestingModule({
       declarations: [LogoComponent],
       imports: [RouterTestingModule]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

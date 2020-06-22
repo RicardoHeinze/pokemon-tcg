@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PokemonCard } from 'src/app/shared/models/Pokemon';
 import { HttpResponse } from '@angular/common/http';
+
+import { PokemonCard } from 'src/app/shared/models/Pokemon';
 
 @Component({
   selector: 'app-pokemon-list',

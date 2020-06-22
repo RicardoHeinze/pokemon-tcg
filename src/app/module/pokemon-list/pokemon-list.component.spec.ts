@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { PokemonListComponent } from './pokemon-list.component';
 import { SearchBarComponent } from 'src/app/shared/components/search-bar/search-bar.component';
@@ -17,11 +17,11 @@ describe('PokemonListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        PokemonListComponent, 
+        PokemonListComponent,
         SearchBarComponent,
         PokemonCardComponent
       ],
-      imports: [ 
+      imports: [
         InfiniteScrollModule,
         ReactiveFormsModule,
         MatInputModule,

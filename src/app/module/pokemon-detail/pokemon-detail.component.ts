@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { PokemonCard } from 'src/app/shared/models/Pokemon';
 import { ActivatedRoute } from '@angular/router';
 
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PokemonDetailComponent implements OnInit {
   pokemonCard: PokemonCard
-  
+
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {

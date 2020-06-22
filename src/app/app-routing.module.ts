@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { PokemonListResolverService } from './module/pokemon-list/pokemon-list-resolver.service';
 import { PokemonDetailResolverService } from './module/pokemon-detail/pokemon-detail-resolver.service';
 
@@ -9,20 +10,20 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo: 'busca'
   },
-  { 
+  {
     path: 'busca',
     loadChildren: () => import('./module/pokemon-list/pokemon-list.module').then(m => m.PokemonListModule),
-    resolve: { pokemonCardList : PokemonListResolverService }
+    resolve: { pokemonCardList: PokemonListResolverService }
   },
-  { 
+  {
     path: 'busca/:name',
     loadChildren: () => import('./module/pokemon-list/pokemon-list.module').then(m => m.PokemonListModule),
-    resolve: { pokemonCardList : PokemonListResolverService }
+    resolve: { pokemonCardList: PokemonListResolverService }
   },
-  { 
+  {
     path: 'pokemon/:id',
     loadChildren: () => import('./module/pokemon-detail/pokemon-detail.module').then(m => m.PokemonDetailModule),
-    resolve: { pokemonCardDetail : PokemonDetailResolverService }
+    resolve: { pokemonCardDetail: PokemonDetailResolverService }
   },
   {
     path: '**',
@@ -31,7 +32,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

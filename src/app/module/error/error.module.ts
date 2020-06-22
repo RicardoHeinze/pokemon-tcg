@@ -11,11 +11,11 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [ PageNotFoundComponent ],
+  declarations: [PageNotFoundComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  exports: [ PageNotFoundComponent ]
+  exports: [PageNotFoundComponent]
 })
 export class ErrorModule { }

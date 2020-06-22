@@ -8,9 +8,8 @@ describe('PokemonDetailDescriptionRowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PokemonDetailDescriptionRowComponent ]
-    })
-    .compileComponents();
+      declarations: [PokemonDetailDescriptionRowComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

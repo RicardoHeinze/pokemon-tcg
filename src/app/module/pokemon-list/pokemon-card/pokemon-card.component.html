@@ -1,5 +1,6 @@
 <figure class="pokemon-figure" *ngIf="pokemonCard">
-    <a [href]="'/pokemon/' + pokemonCard.id" *ngIf="pokemonCard.imageUrl" [title]="pokemonCard.name" class="img-wrapper">
+    <a [href]="'/pokemon/' + pokemonCard.id" *ngIf="pokemonCard.imageUrl" [title]="pokemonCard.name"
+        class="img-wrapper">
         <img class="pokemon-image" [src]="pokemonCard.imageUrl" [alt]="pokemonCard.name">
     </a>
     <figcaption class="description">

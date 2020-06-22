@@ -1,6 +1,6 @@
 <div class="row" [ngClass]="{'list-row': listValues}">
     <label class="title">{{title}}</label>
-    <ng-container *ngIf="value" >
+    <ng-container *ngIf="value">
         <ng-container *ngIf="isArray(value); else isSimpleValue">
             <span class="text multiple-values" *ngFor="let val of value">{{val}} </span>
         </ng-container>

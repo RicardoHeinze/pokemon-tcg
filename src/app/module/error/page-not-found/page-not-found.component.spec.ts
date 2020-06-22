@@ -9,10 +9,9 @@ describe('PageNotFoundComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageNotFoundComponent ],
-      imports: [ RouterTestingModule ]
-    })
-    .compileComponents();
+      declarations: [PageNotFoundComponent],
+      imports: [RouterTestingModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
