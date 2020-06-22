@@ -15,8 +15,6 @@
                     </app-pokemon-detail-description-row>
                     <app-pokemon-detail-description-row *ngIf="pokemonCard.types" [title]="'Type:'"
                         [value]="pokemonCard.types"></app-pokemon-detail-description-row>
-                    <app-pokemon-detail-description-row *ngIf="pokemonCard.text" [title]="'Text:'"
-                        [value]="pokemonCard.text"></app-pokemon-detail-description-row>
                     <app-pokemon-detail-description-row *ngIf="pokemonCard.attacks  && pokemonCard.attacks.length > 0"
                         [title]="'Attacks'" [listValues]="pokemonCard.attacks"></app-pokemon-detail-description-row>
                     <app-pokemon-detail-description-row

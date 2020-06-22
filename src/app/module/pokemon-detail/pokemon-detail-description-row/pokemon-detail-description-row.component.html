@@ -12,7 +12,7 @@
         <ul class="attr-list">
             <li class="attr" *ngFor="let obj of listValues">
                 <ng-container *ngFor="let key of objectKeys(obj)">
-                    <div class="row" *ngIf="obj[key]">
+                    <div class="row" *ngIf="obj[key] && key !== 'convertedEnergyCost'">
                         <label class="title">{{key}}:</label>
                         <ng-container *ngIf="isArray(obj[key]); else isSimpleValue">
                             <span class="list-text multiple-values" *ngFor="let value of obj[key]">{{value}}</span>
