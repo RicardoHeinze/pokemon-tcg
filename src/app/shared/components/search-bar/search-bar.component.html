@@ -1,7 +1,7 @@
 <form *ngIf="searchForm" [formGroup]="searchForm" (ngSubmit)="search()" class="search-form">
     <mat-form-field class="form-group">
         <mat-label>Buscar por nome</mat-label>
-        <input formControlName="searchTerm" class="form-control" matInput>
+        <input id="searchTerm" formControlName="searchTerm" class="form-control" matInput>
     </mat-form-field>
     <button class="btn btn-search" title="Buscar" type="submit"></button>
 </form>

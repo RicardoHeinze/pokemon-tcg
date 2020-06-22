@@ -30,9 +30,11 @@ describe('SearchBarComponent', () => {
   });
 
   describe('Checking Form Behavior', () => {
-    it(`should have a text 'charizard'`, async(() => {
-      component.searchForm.controls['searchTerm'].setValue('charizard');
-      expect(component.searchForm.controls['searchTerm'].value === 'charizard').toBeTruthy();
+    const searchedTerm = 'charizard';
+
+    it(`should have a text: "${searchedTerm}"`, async(() => {
+      component.searchForm.controls['searchTerm'].setValue(`${searchedTerm}`);
+      expect(component.searchForm.controls['searchTerm'].value === searchedTerm).toBeTruthy();
     }));
 
     it(`form should be valid`, async(() => {

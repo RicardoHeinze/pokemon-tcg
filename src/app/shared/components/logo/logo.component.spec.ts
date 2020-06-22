@@ -26,7 +26,7 @@ describe('LogoComponent', () => {
   });
 
   describe('Checking HTML Elements', () => {
-    it('Must have a ID: pokemonLogo', () => {
+    it('should have the ID: "pokemonLogo"', () => {
       fixture.detectChanges();
       let el = fixture.debugElement.query(By.css('#pokemonLogo'));
 

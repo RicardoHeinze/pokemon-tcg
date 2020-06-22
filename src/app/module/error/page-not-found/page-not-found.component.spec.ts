@@ -21,7 +21,7 @@ describe('PageNotFoundComponent', () => {
   });
 
   describe('Checking HTML Content', () => {
-    it('Must have a text: Página não encontrada', () => {
+    it('should have the text: "Página não encontrada"', () => {
       fixture.detectChanges();
       let de = fixture.debugElement.query(By.css('.subtitle')).nativeElement;
 

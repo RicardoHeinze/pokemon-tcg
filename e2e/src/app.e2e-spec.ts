@@ -1,17 +1,17 @@
 import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
 
-describe('workspace-project App', () => {
+describe('pokemon-tcg App', () => {
   let page: AppPage;
 
   beforeEach(() => {
     page = new AppPage();
   });
 
-  // it('should display welcome message', () => {
-  //   page.navigateTo();
-  //   expect(page.getTitleText()).toEqual('pokemon-tcg app is running!');
-  // });
+  it('should display pokemon logo', () => {
+    page.navigateTo();
+    expect(page.getPokemonLogo()).toBeTruthy();
+  });
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
