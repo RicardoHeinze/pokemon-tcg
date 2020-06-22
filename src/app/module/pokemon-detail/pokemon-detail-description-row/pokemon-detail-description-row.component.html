@@ -14,7 +14,12 @@
                 <ng-container *ngFor="let key of objectKeys(obj)">
                     <div class="row" *ngIf="obj[key]">
                         <label class="title">{{key}}:</label>
-                        <span class="list-text" [ngClass]="{'text-array': isArray(obj[key])}">{{obj[key]}}</span>
+                        <ng-container *ngIf="isArray(obj[key]); else isSimpleValue">
+                            <span class="list-text multiple-values" *ngFor="let value of obj[key]">{{value}}</span>
+                        </ng-container>
+                        <ng-template #isSimpleValue>
+                            <span class="list-text">{{obj[key]}}</span>
+                        </ng-template>
                     </div>
                 </ng-container>
             </li>
